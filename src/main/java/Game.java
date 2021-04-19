@@ -14,8 +14,12 @@ public class Game {
         String gender = reader.readLine();
         if(gender.equalsIgnoreCase("m")){
             Character character = new Character(Gender.FEMALE);
+            character.initStats();
+            character.displayStat();
         }else {
             Character character = new Character(Gender.MALE);
+            character.initStats();
+            character.displayStat();
         }
     }
 }
