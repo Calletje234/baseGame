@@ -1,8 +1,12 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String arg[]) throws IOException {
+
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String arg[]){
         Game game = new Game();
-        Game.characterCreate();
+        game.characterCreate(scanner);
     }
 }

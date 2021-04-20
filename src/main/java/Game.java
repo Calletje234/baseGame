@@ -1,25 +1,26 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.Buffer;
+import CreateCharacter.Character;
+import CreateCharacter.FemaleCharacter;
+import CreateCharacter.MaleCharacter;
+
+import java.util.Scanner;
 
 public class Game {
 
-    public static void characterCreate() throws IOException{
+    public static void characterCreate(Scanner scanner){
         System.out.println("Do you want a Male or Female character: ");
         System.out.println(" - Male: 'm'");
         System.out.println(" - Female: 'f'");
+        String gender = scanner.nextLine();
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String gender = reader.readLine();
-        if(gender.equalsIgnoreCase("m")){
-            Character character = new Character(Gender.FEMALE);
-            character.initStats();
-            character.displayStat();
+        if(gender.equalsIgnoreCase("f")){
+            Character femalechar = new FemaleCharacter();
+            femalechar.displayStats();
+        }else if(gender.equalsIgnoreCase("m")){
+            Character malechar = new MaleCharacter();
+            malechar.displayStats();
         }else {
-            Character character = new Character(Gender.MALE);
-            character.initStats();
-            character.displayStat();
+            System.out.println("Sorry input ins't one of the types mentioned above. Please type 'f' for Female and 'm' for Male");
+            characterCreate(scanner);
         }
     }
 }
